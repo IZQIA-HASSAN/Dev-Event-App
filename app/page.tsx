@@ -1,5 +1,8 @@
 import React from 'react'
 import  Explorebtn from "./components/ExploreBtn"
+import EventCard from './components/EventCard'
+import {events} from "./libs/Constants"
+
 
 const page = () => {
   return (
@@ -8,13 +11,17 @@ const page = () => {
       <p className='mt-5 text-center'>Hackathons , Meetups and Conferences all in one place </p>
       <Explorebtn/>
 
-      <div className='mt-20 space-y-7'>
+      <div className='mt-20 '>
 <h1>Featured Events</h1>
 
-<ul className='events'></ul>
-{[1,2,3,4,5].map((event)=>(
-<li key={event}>Event {event}</li>
+<ul className='events '>
+  {events.map((event)=>(
+  <li key={event.title}>
+    <EventCard {...event}/>
+  </li>
 ))}
+</ul>
+
       </div>
     </section>
   )
